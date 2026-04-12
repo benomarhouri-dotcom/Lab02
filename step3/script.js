@@ -1,0 +1,129 @@
+[12‏/4‏/2026 9:08 م] Nini Yacine: <!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>GPA Calculator</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+
+</head>
+
+<body>
+
+<h1>GPA Calculator</h1>
+
+<form action="calculate.php" method="post" onsubmit="return validateForm();">
+
+<div id="courses">
+
+<div class="course-row">
+
+<label>Course:</label>
+
+<input type="text" name="course[]" placeholder="Mathematics" required>
+
+<label>Credits:</label>
+
+<input type="number" name="credits[]" min="1" placeholder="3" required>
+
+<label>Grade:</label>
+
+<select name="grade[]">
+
+<option value="4.0">A</option>
+<option value="3.0">B</option>
+<option value="2.0">C</option>
+<option value="1.0">D</option>
+<option value="0.0">F</option>
+
+</select>
+
+</div>
+
+</div>
+
+<br>
+
+<button type="button" onclick="addCourse()">
++ Add Course
+</button>
+
+<br><br>
+
+<input type="submit" value="Calculate GPA">
+
+</form>
+
+</body>
+</html>
+[12‏/4‏/2026 9:08 م] Nini Yacine: function addCourse(){
+
+var row = document.createElement("div")
+
+row.className="course-row"
+
+row.innerHTML =
+
+'<label>Course:</label>' +
+
+'<input type="text" name="course[]" required>' +
+
+'<label>Credits:</label>' +
+
+'<input type="number" name="credits[]" min="1" required>' +
+
+'<label>Grade:</label>' +
+
+'<select name="grade[]">' +
+
+'<option value="4.0">A</option>' +
+
+'<option value="3.0">B</option>' +
+
+'<option value="2.0">C</option>' +
+
+'<option value="1.0">D</option>' +
+
+'<option value="0.0">F</option>' +
+
+'</select>' +
+
+'<button type="button" onclick="this.parentNode.remove()">Remove</button>'
+
+document.getElementById("courses").appendChild(row)
+
+}
+
+function validateForm(){
+
+var courses=document.querySelectorAll('[name="course[]"]')
+
+var credits=document.querySelectorAll('[name="credits[]"]')
+
+for(var i=0;i<courses.length;i++){
+
+if(courses[i].value===""){
+
+alert("Course name required")
+return false
+
+}
+
+}
+
+for(var j=0;j<credits.length;j++){
+
+if(isNaN(credits[j].value) || credits[j].value<=0){
+
+alert("Credits must be positive numbers")
+return false
+
+}
+
+}
+
+return true
+
+}
