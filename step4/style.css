@@ -1,0 +1,47 @@
+/* تنسيق عام للحاوية */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* تنسيق شريط التقدم */
+.progress {
+    border-radius: 10px;
+    background-color: #e9ecef;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#gpa-bar {
+    transition: width 1s ease-in-out, background-color 0.5s ease;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ألوان مخصصة للحالات */
+.bg-distinction { background-color: #28a745 !important; } /* أخضر */
+.bg-merit { background-color: #007bff !important; }       /* أزرق */
+.bg-pass { background-color: #ffc107 !important; }        /* أصفر */
+.bg-fail { background-color: #dc3545 !important; }        /* أحمر */
+
+/* زر التصدير */
+.btn-export {
+    background-color: #198754;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-export:hover {
+    background-color: #146c43;
+    color: #fff;
+    transform: translateY(-2px);
+}
